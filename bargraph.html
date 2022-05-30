@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap 5 Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>ChartJS - BarGraph</title>
+    <style type="text/css">
+        body {
+            background-color: black;
+        }
+        
+        #iy {
+            background-color: aqua;
+            position: relative;
+            top: 5px;
+            border: 2px solid black;
+            text-align: center;
+            padding-bottom: 1px;
+            border-radius: 1cm;
+        }
+        
+        #chart-container {
+            width: 640px;
+            height: auto;
+            border-radius: .5cm;
+        }
+        
+        #mycanvas1 {
+            background-color: bisque;
+            border: 2px solid olive;
+            position: absolute;
+            top: 210px;
+            right: 0;
+            border: 3px solid blue;
+            border-radius: .5cm;
+        }
+        
+        #mycanvas2 {
+            background-color: azure;
+            border: 2px solid salmon;
+            align-items: right;
+            border-radius: .5cm;
+        }
+        
+        #mycanvas {
+            background-color: khaki;
+            border: 2px solid red;
+            align-items: right;
+            border-radius: .5cm;
+        }
+        
+        .dropbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            align-items: center;
+        }
+        
+        .dropdown {
+            position: absolute;
+            align-items: center;
+            top: 30%;
+            right: 45%;
+        }
+        
+        .dropdown-content {
+            display: none;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+        
+        @media only screen and (max-width: 1272px) {
+            body {
+                background-color: rgb(230, 192, 173);
+            }
+            #chart-container {
+                width: 640px;
+                height: auto;
+                border-radius: .5cm;
+            }
+            #mycanvas1 {
+                border: 2px solid olive;
+                position: relative;
+                top: 2.5cm;
+                left: 0cm;
+                border: 3px solid blue;
+                border-radius: .5cm;
+            }
+            #mycanvas2 {
+                position: relative;
+                border: 2px solid salmon;
+                align-items: right;
+                border-radius: .5cm;
+                top: 2.5cm;
+            }
+            #mycanvas {
+                border: 2px solid red;
+                align-items: right;
+                border-radius: .5cm;
+            }
+            .dropdown {
+                position: fixed;
+                align-items: center;
+                top: 37%;
+                left: 5cm;
+            }
+            #iy {
+                position: relative;
+                top: 5px;
+                border: 2px solid black;
+                text-align: center;
+                padding-bottom: 1px;
+                border-radius: 1cm;
+            }
+        }
+        
+        @media only screen and (max-width: 600px) {
+            body {
+                background-color: lightblue;
+            }
+            #chart-container {
+                width: 640px;
+                height: auto;
+                border-radius: .5cm;
+            }
+            #mycanvas1 {
+                border: 2px solid olive;
+                position: relative;
+                top: 8.5cm;
+                left: -8cm;
+                border: 3px solid blue;
+                border-radius: .5cm;
+            }
+            #mycanvas2 {
+                border: 2px solid salmon;
+                align-items: right;
+                border-radius: .5cm;
+            }
+            #mycanvas {
+                border: 2px solid red;
+                align-items: right;
+                border-radius: .5cm;
+            }
+            .dropdown {
+                position: fixed;
+                align-items: center;
+                top: 10%;
+                right: 1cm;
+            }
+            #iy {
+                position: relative;
+                top: 5px;
+                border: 2px solid black;
+                text-align: center;
+                padding-bottom: 1px;
+                border-radius: 1cm;
+            }
+            @media only screen and (max-width: 1000px) {
+                body {
+                    background-color: lightblue;
+                }
+                #chart-container {
+                    width: 640px;
+                    height: auto;
+                    border-radius: .5cm;
+                }
+                #mycanvas1 {
+                    border: 2px solid olive;
+                    position: relative;
+                    top: 8.5cm;
+                    left: -8cm;
+                    border: 3px solid blue;
+                    border-radius: .5cm;
+                }
+                #mycanvas2 {
+                    border: 2px solid salmon;
+                    align-items: right;
+                    border-radius: .5cm;
+                }
+                #mycanvas {
+                    border: 2px solid red;
+                    align-items: right;
+                    border-radius: .5cm;
+                }
+                .dropdown {
+                    position: fixed;
+                    align-items: center;
+                    top: 30%;
+                    right: 5cm;
+                }
+                #iy {
+                    position: relative;
+                    top: 5px;
+                    border: 2px solid black;
+                    text-align: center;
+                    padding-bottom: 1px;
+                    border-radius: 1cm;
+                }
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="header">
+        <div id="iy">
+            <img src="lg.png" width="100px" filter: invert(20%);>
+            <img id="olo" src="lg1.jpg.jfif" width="160px" filter: invert(0%);>
+            <div>
+                <h2 id="demo"></h2>
+                <h1>WELLCOME TO BIRLA WHITE DASHBOARD </h1>
+            </div>
+        </div>
+    </header>
+    <div id="chart-container">
+        <canvas id="mycanvas"></canvas>
+        <canvas id="mycanvas1"></canvas>
+        <canvas id="mycanvas2"></canvas>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">DEPARTMENT</button>
+        <div class="dropdown-content">
+            <a href="http://localhost/chartjs/mobile.html">RAW MILL</a>
+            <a href="http://localhost/chartjs/mobile.html">VRM</a>
+            <a href="http://localhost/chartjs/mobile.html">KILN1</a>
+        </div>
+    </div>
+
+    <!-- javascript 
+    <script type="text/javascript" src="js/jquery.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="y1.js"></script>
+    <script type="text/javascript" src="pie.js"></script>
+
+
+
+
+</body>
+
+</html>
